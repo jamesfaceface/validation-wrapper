@@ -44,7 +44,7 @@ module.exports = function(grunt) {
 		copy: {
 			production: {
 				files: [
-					{src: ['src/<%= pkg.name %>*.html'], dest: '<%= pkg.name %>/'}
+					{expand: true, src: '<%= pkg.name %>*.html', cwd: 'src/', dest: '<%= pkg.name %>/', flatten: true}
 				]
 			}
 		},
