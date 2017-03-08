@@ -1,5 +1,7 @@
 version: '1.0.{build}'
 
+skip_tags: true
+
 build_script:
 - cd validation-wrapper
 - npm install -g grunt-cli
