@@ -8,4 +8,8 @@ build_script:
 
 artifacts:
 - path: validation-wrapper\production
-  name: validation-wrapper.zip
+  name: validation-wrapper
+
+deploy:
+- provider: GitHub
+  artifact: validation-wrapper.zip
