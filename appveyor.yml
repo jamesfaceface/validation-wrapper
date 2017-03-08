@@ -1,3 +1,5 @@
 version: '1.0.{build}'
 build_script:
-- dir
+- cd validation-wrapper
+- npm install
+- grunt
