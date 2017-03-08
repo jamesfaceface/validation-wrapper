@@ -3,4 +3,4 @@ build_script:
 - cd validation-wrapper
 - npm install -g grunt-cli
 - npm install
-- grunt
+- grunt production
