@@ -1,9 +1,3 @@
-/**
- * @license validation-wrapper
- * Copyright 2017 @jamesfaceface https://github.com/jamesfaceface
- * License: MIT
- */
-
 var validationWrapperModule = angular.module("validationWrapper", []);
 
 validationWrapperModule.controller("ValidationWrapperCtrl", ["$scope", "$element", function($scope, $element) {
