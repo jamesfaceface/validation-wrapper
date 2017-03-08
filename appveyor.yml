@@ -5,7 +5,10 @@ build_script:
 - npm install -g grunt-cli
 - npm install
 - grunt production
+- dir
+- cd production
+- dir
 
 artifacts:
-- path: production
+- path: production/*
   name: validation-wrapper.zip
