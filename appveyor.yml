@@ -13,3 +13,5 @@ artifacts:
 deploy:
 - provider: GitHub
   artifact: validation-wrapper.zip
+  auth_token:
+    secure: HiCVoH9XLPbrdI9Qyfc+OzttDUYrvfGHQv1lw2yEZTX/N/cbAbvzKmzUoE9pUhJx
