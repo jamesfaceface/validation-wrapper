@@ -1,0 +1,27 @@
+/*
+ * @license validation-wrapper
+ * Copyright 2017 @jamesfaceface https://github.com/jamesfaceface
+ * License: MIT
+ */
+
+.validation-message-label {
+	margin-bottom: 3px;
+}
+
+.validation-message-label label {
+	margin-bottom: 2px;
+}
+
+.validation-message {
+	font-weight: bold;
+	padding: 1px 5px;
+	font-size: 8pt;
+	margin-left: 2px;
+	margin-top: 4px;
+	margin-bottom: 2px;
+}
+
+.validation-message-clearfix {
+	display: inline-block;
+	clear: both;
+}
