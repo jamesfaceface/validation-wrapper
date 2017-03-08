@@ -14,15 +14,15 @@ module.exports = function(grunt) {
         uglify: {
             production: {
                 files: {
-                    'obj/<%= pkg.name %>.min.js': '<%= pkg.name %>.js',
-					'obj/<%= pkg.name %>-template.min.js': '<%= pkg.name %>-template.js'
+                    'obj/<%= pkg.name %>.min.js': 'src/<%= pkg.name %>.js',
+					'obj/<%= pkg.name %>-template.min.js': 'src/<%= pkg.name %>-template.js'
                 }
             }
         },
         cssmin: {
             production: {
                 files: {
-                    'obj/<%= pkg.name %>.min.css': '<%= pkg.name %>.css'
+                    'obj/<%= pkg.name %>.min.css': 'src/<%= pkg.name %>.css'
                 }
             }
         },
@@ -32,19 +32,19 @@ module.exports = function(grunt) {
             },
 			production: {
 				files: {
-					'production/<%= pkg.name %>.min.js': 'obj/<%= pkg.name %>.min.js',
-					'production/<%= pkg.name %>-template.min.js': 'obj/<%= pkg.name %>-template.min.js',
-					'production/<%= pkg.name %>.min.css': 'obj/<%= pkg.name %>.min.css',
-					'production/<%= pkg.name %>.js': '<%= pkg.name %>.js',
-					'production/<%= pkg.name %>-template.js': '<%= pkg.name %>-template.js',
-					'production/<%= pkg.name %>.css': '<%= pkg.name %>.css'
+					'<%= pkg.name %>/<%= pkg.name %>.min.js': 'obj/<%= pkg.name %>.min.js',
+					'<%= pkg.name %>/<%= pkg.name %>-template.min.js': 'obj/<%= pkg.name %>-template.min.js',
+					'<%= pkg.name %>/<%= pkg.name %>.min.css': 'obj/<%= pkg.name %>.min.css',
+					'<%= pkg.name %>/<%= pkg.name %>.js': 'src/<%= pkg.name %>.js',
+					'<%= pkg.name %>/<%= pkg.name %>-template.js': 'src/<%= pkg.name %>-template.js',
+					'<%= pkg.name %>/<%= pkg.name %>.css': 'src/<%= pkg.name %>.css'
 				}
 			}
 		},
 		copy: {
 			production: {
 				files: [
-					{src: ['<%= pkg.name %>*.html'], dest: 'production/'}
+					{src: ['src/<%= pkg.name %>*.html'], dest: '<%= pkg.name %>/'}
 				]
 			}
 		},
