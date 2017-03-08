@@ -7,5 +7,5 @@ build_script:
 - grunt production
 
 artifacts:
-- name: validation-wrapper.zip
 - path: production
+  name: validation-wrapper.zip
