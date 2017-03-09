@@ -3,7 +3,7 @@ version: '1.0.{build}'
 skip_tags: true
 
 skip_commits:
-  message: "**no_build**"
+  message: /*/*no_build/*/*
 
 build_script:
 - echo Version %APPVEYOR_BUILD_VERSION%
@@ -35,4 +35,4 @@ on_success:
 - git pull origin %APPVEYOR_REPO_BRANCH%
 - git add dist/*.*
 - git commit -m "**no_build** assets committed"
-- git push 
+- git push origin %APPVEYOR_REPO_BRANCH%
