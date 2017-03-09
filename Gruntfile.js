@@ -1,15 +1,18 @@
-/*global module:false*/
 module.exports = function(grunt) {
 
     // Project configuration.
     grunt.initConfig({
+		
         // Metadata.
+		version: process.env.APPVEYOR_BUILD_VERSION || '1.0.0',
         pkg: grunt.file.readJSON('package.json'),
-        banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-            '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-            '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-            ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n\n',
+		bannerContent:
+			' <%= pkg.name %> v<%= version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+			'Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %> (<%= pkg.repository %>)\n' +
+			'Licenses: <%= _.pluck(pkg.licenses, "type").join(", ") %>\n',
+        scriptBanner: '/*<%= bannerContent %>*/\n\n',
+        markupBanner: '<!--<%= bannerContent %>-->\n\n',
+		
         // Task configuration.
         uglify: {
             production: {
@@ -27,10 +30,10 @@ module.exports = function(grunt) {
             }
         },
 		concat: {
-            options: {
-                banner: '<%= banner %>'
-            },
-			production: {
+			productionScript: {
+				options: {
+					banner: '<%= scriptBanner %>'
+				},
 				files: {
 					'<%= pkg.name %>/<%= pkg.name %>.min.js': 'obj/<%= pkg.name %>.min.js',
 					'<%= pkg.name %>/<%= pkg.name %>-template.min.js': 'obj/<%= pkg.name %>-template.min.js',
@@ -39,13 +42,14 @@ module.exports = function(grunt) {
 					'<%= pkg.name %>/<%= pkg.name %>-template.js': 'src/<%= pkg.name %>-template.js',
 					'<%= pkg.name %>/<%= pkg.name %>.css': 'src/<%= pkg.name %>.css'
 				}
-			}
-		},
-		copy: {
-			production: {
-				files: [
-					{expand: true, src: '<%= pkg.name %>*.html', cwd: 'src/', dest: '<%= pkg.name %>/', flatten: true}
-				]
+			},
+			productionMarkup: {
+				options: {
+					banner: '<%= markupBanner %>'
+				},
+				files: {
+					'<%= pkg.name %>/<%= pkg.name %>-template.html': 'src/<%= pkg.name %>-template.html'
+				}
 			}
 		},
 		clean: {
@@ -56,11 +60,15 @@ module.exports = function(grunt) {
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 
     // Default task.
-    grunt.registerTask('production', ['uglify:production', 'cssmin:production', 'concat:production', 'copy:production', 'clean']);
-
+    grunt.registerTask('production', [
+		'uglify:production',
+		'cssmin:production',
+		'concat:productionScript',
+		'concat:productionMarkup',
+		'clean'
+	]);
 };
