@@ -20,7 +20,7 @@ An Angular directive to provide boiler plate reduction when using the built in v
 ```sh
 bower install angular-validation-wrapper --save
 ```
-	- *Note: You should include the files from the dist directory rather than the src directory.*
+*Note: You should include the files from the dist directory rather than the src directory.*
 
 ###Manual
 - Download the [latest release](https://github.com/jamesfaceface/validation-wrapper/releases/latest) and unzip it.
