@@ -1,0 +1,25 @@
+{
+  "name": "angular-validation-wrapper",
+  "description": "Angular directive to provide boiler plate reduction when using validation messages.",
+  "main": "validation-wrapper.js",
+  "authors": [
+    "jamesfaceface"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "validation"
+  ],
+  "homepage": "https://github.com/jamesfaceface/validation-wrapper",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.2",
+    "jquery": "^1.12.4"
+  }
+}
