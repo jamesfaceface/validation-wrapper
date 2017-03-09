@@ -32,7 +32,7 @@ on_success:
 - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
 - git config --global user.email jamesfaceface@live.co.uk
 - git config --global user.name jamesfaceface
-- git pull origin %APPVEYOR_REPO_BRANCH%
+- git checkout %APPVEYOR_REPO_BRANCH%
 - git add dist/*.*
 - git commit -m "**no_build** assets committed"
 - git push origin %APPVEYOR_REPO_BRANCH%
