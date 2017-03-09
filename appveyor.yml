@@ -3,7 +3,7 @@ version: '1.0.{build}'
 skip_tags: true
 
 skip_commits:
-  message: **no_build**
+  message: "**no_build**"
 
 build_script:
 - echo Version %APPVEYOR_BUILD_VERSION%
