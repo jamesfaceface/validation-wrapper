@@ -35,12 +35,12 @@ module.exports = function(grunt) {
 					banner: '<%= scriptBanner %>'
 				},
 				files: {
-					'<%= pkg.name %>/<%= pkg.name %>.min.js': 'obj/<%= pkg.name %>.min.js',
-					'<%= pkg.name %>/<%= pkg.name %>-template.min.js': 'obj/<%= pkg.name %>-template.min.js',
-					'<%= pkg.name %>/<%= pkg.name %>.min.css': 'obj/<%= pkg.name %>.min.css',
-					'<%= pkg.name %>/<%= pkg.name %>.js': 'src/<%= pkg.name %>.js',
-					'<%= pkg.name %>/<%= pkg.name %>-template.js': 'src/<%= pkg.name %>-template.js',
-					'<%= pkg.name %>/<%= pkg.name %>.css': 'src/<%= pkg.name %>.css'
+					'dist/<%= pkg.name %>.min.js': 'obj/<%= pkg.name %>.min.js',
+					'dist/<%= pkg.name %>-template.min.js': 'obj/<%= pkg.name %>-template.min.js',
+					'dist/<%= pkg.name %>.min.css': 'obj/<%= pkg.name %>.min.css',
+					'dist/<%= pkg.name %>.js': 'src/<%= pkg.name %>.js',
+					'dist/<%= pkg.name %>-template.js': 'src/<%= pkg.name %>-template.js',
+					'dist/<%= pkg.name %>.css': 'src/<%= pkg.name %>.css'
 				}
 			},
 			productionMarkup: {
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
 					banner: '<%= markupBanner %>'
 				},
 				files: {
-					'<%= pkg.name %>/<%= pkg.name %>-template.html': 'src/<%= pkg.name %>-template.html'
+					'dist/<%= pkg.name %>-template.html': 'src/<%= pkg.name %>-template.html'
 				}
 			}
 		},
