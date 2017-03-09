@@ -3,7 +3,7 @@ version: '1.0.{build}'
 skip_tags: true
 
 build_script:
-- echo Version: %APPVEYOR_BUILD_VERSION%
+- echo "Version:" %APPVEYOR_BUILD_VERSION%
 - npm install -g grunt-cli
 - npm install
 - grunt production
