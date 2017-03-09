@@ -1,6 +1,6 @@
 version: '1.0.{build}'
 
-skip_non_tags: true
+skip_tags: true
 
 build_script:
 - npm install -g grunt-cli
@@ -17,4 +17,4 @@ deploy:
   auth_token:
     secure: HiCVoH9XLPbrdI9Qyfc+OzttDUYrvfGHQv1lw2yEZTX/N/cbAbvzKmzUoE9pUhJ x
   on:
-    appveyor_repo_tag: true
+    branch: master
