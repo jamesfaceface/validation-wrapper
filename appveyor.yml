@@ -9,7 +9,7 @@ build_script:
 - grunt production
 
 artifacts:
-- path: validation-wrapper
+- path: dist
   name: validation-wrapper
 
 deploy:
@@ -19,3 +19,16 @@ deploy:
     secure: HiCVoH9XLPbrdI9Qyfc+OzttDUYrvfGHQv1lw2yEZTX/N/cbAbvzKmzUoE9pUhJ x
   on:
     branch: master
+
+environment:
+  access_token:
+    secure: HiCVoH9XLPbrdI9Qyfc+OzttDUYrvfGHQv1lw2yEZTX/N/cbAbvzKmzUoE9pUhJ x
+
+on_success:
+- git config --global credential.helper store
+- ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+- git config --global user.email jamesfaceface@live.co.uk
+- git config --global user.name jamesfaceface
+- git add dist/*.*
+- git commit
+- git push
