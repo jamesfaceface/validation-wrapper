@@ -49,9 +49,9 @@ This example shows the validation of an email field, which can be set to require
 ###Markup
 ```html
 <body ng-app="example">
-  <script src="https://rawgit.com/jamesfaceface/validation-wrapper/CustomMandatoryNotifier/dist/validation-wrapper.min.js"></script>
-  <script src="https://rawgit.com/jamesfaceface/validation-wrapper/CustomMandatoryNotifier/dist/validation-wrapper-template.min.js"></script>
-  <link href="https://rawgit.com/jamesfaceface/validation-wrapper/CustomMandatoryNotifier/dist/validation-wrapper.min.css" rel="stylesheet">
+  <script src="https://rawgit.com/jamesfaceface/validation-wrapper/master/dist/validation-wrapper.min.js"></script>
+  <script src="https://rawgit.com/jamesfaceface/validation-wrapper/master/dist/validation-wrapper-template.min.js"></script>
+  <link href="https://rawgit.com/jamesfaceface/validation-wrapper/master/dist/validation-wrapper.min.css" rel="stylesheet">
   
   <h1>Validation Wrapper Example</h1>
   
