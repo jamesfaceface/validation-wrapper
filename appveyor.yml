@@ -5,6 +5,7 @@ skip_tags: true
 skip_commits:
   files:
     - dist/*
+    - README.md
 
 build_script:
 - echo Version %APPVEYOR_BUILD_VERSION%
