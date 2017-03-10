@@ -1,4 +1,4 @@
-/* validation-wrapper v1.0.66 - 2017-03-10
+/* validation-wrapper v1.0.69 - 2017-03-10
 Copyright (c) 2017 @jamesfaceface (https://github.com/jamesfaceface/validation-wrapper)
 Licenses: MIT
 */
@@ -8,6 +8,8 @@ var validationWrapperModule = angular.module("validationWrapper", []);
 validationWrapperModule.controller("ValidationWrapperCtrl", ["$scope", "$element", function($scope, $element) {
 	var vm = this;
 	var element = $element;
+	
+	vm.mandatoryNotifier = $scope.mandatoryNotifier || "*";
 	vm.fieldName = $scope.fieldName;
 	vm.validationMessages = $scope.validationMessages;
 	vm.formObject = $scope.getForm();
@@ -37,7 +39,7 @@ validationWrapperModule.controller("ValidationWrapperCtrl", ["$scope", "$element
 		
 		if(!label.find(".mandatory-notifier").length){
 			// First time running so add it
-			label.append("<span class='mandatory-notifier'>*</span>");
+			label.append("<span class='mandatory-notifier'>" + vm.mandatoryNotifier + "</span>");
 		}
 		
 		var mandatoryNotifier = label.find(".mandatory-notifier");
@@ -63,6 +65,7 @@ validationWrapperModule.directive("validationWrapper", function() {
 		controller: "ValidationWrapperCtrl",
 		scope:
 		{
+			mandatoryNotifier: "=",
 			getForm: "=",
 			fieldName: "@",
 			validationMessages: "="
