@@ -44,51 +44,55 @@ bower install angular-validation-wrapper --save
 ###Custom Template
 - If you wish to customize the template, the easiest way is to modify ```validation-wrapper-template.html``` and place it in ```/validation-wrapper/validation-wrapper-template.html```. This is the default location where the directive will look for the template. You can provide a different file all together by setting the ```template-url``` attribute when using the directive.
 
-##Example
+##[Example](https://plnkr.co/edit/1mR7DcvCjeTK5WLwJgVk?p=preview)
 This example shows the validation of an email field, which can be set to required or not. The standard template is used and the form is structured in the Bootstrap style.
 ###Markup
 ```html
-
-<script src="validation-wrapper/validation-wrapper.min.js"></script>
-<script src="validation-wrapper/validation-wrapper-template.min.js"></script>
-<link href="validation-wrapper/validation-wrapper.min.css" rel="stylesheet">
-
-<form name="vm.exampleForm" id="exampleForm">
-	<div class="row">
-		<div class="form-group col-md-6 col-sm-6">
-			<validation-wrapper get-form="vm.getFormObject" field-name="email" validation-messages="vm.getValidationMessages('email')">
-				<label-element>
-					<input type='checkbox' ng-model="vm.emailRequired"/>
-					<label for="email">Email Address</label>
-				</label-element>
-				<input-element>
-					<div class="input-group">
-						<span class="input-group-addon" id="email-addon"><i class="fa fa-info"></i></span>
-						<input type="email" class="form-control" id="email" aria-describedby="email-addon" ng-model="vm.email" name="email" ng-required="vm.emailRequired">
-					</div>
-				</input-element>
-			</validation-wrapper>
-		</div>
-	</div>
-</form>
+<body ng-app="example">
+  <script src="https://rawgit.com/jamesfaceface/validation-wrapper/master/dist/validation-wrapper.min.js"></script>
+  <script src="https://rawgit.com/jamesfaceface/validation-wrapper/master/dist/validation-wrapper-template.min.js"></script>
+  <link href="https://rawgit.com/jamesfaceface/validation-wrapper/master/dist/validation-wrapper.min.css" rel="stylesheet">
+  
+  <h1>Validation Wrapper Example</h1>
+  
+  <form name="vm.exampleForm" id="exampleForm" ng-controller="ExampleCtrl as vm">
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <validation-wrapper get-form="vm.getFormObject" field-name="email" validation-messages="vm.getValidationMessages('email')">
+          <label-element>
+            <input type='checkbox' ng-model="vm.emailRequired"/>
+            <label for="email">Email Address</label>
+          </label-element>
+          <input-element>
+            <div class="input-group">
+              <span class="input-group-addon" id="email-addon"><i class="fa fa-info"></i></span>
+              <input type="email" class="form-control" id="email" aria-describedby="email-addon" ng-model="vm.email" name="email" ng-required="vm.emailRequired">
+            </div>
+          </input-element>
+        </validation-wrapper>
+      </div>
+    </div>
+    <pre style="max-width: 600px;max-height: 350px;overflow:scroll;">{{vm | json}}</pre>
+  </form>
+</body>
 ```
 ###Script
 ```javascript
 angular.module('example', ['validationWrapper']).controller('ExampleCtrl', function($scope) {
   var vm = this;
-	
-	vm.emailRequired = true;
-	vm.getFormObject = function() {
-		return vm.exampleForm;
-	};
-	var validationMessages = {
-		email: [
-			{type: "required", message: "Email is required"},
-			{type: "email", message: "A valid email is required, e.g. enter the email as myname@mycompany.com"}
-		]
-	};
-	vm.getValidationMessages = function(fieldName) {
-		return validationMessages[fieldName];
-	};
+
+  vm.emailRequired = true;
+  vm.getFormObject = function() {
+    return vm.exampleForm;
+  };
+  var validationMessages = {
+    email: [
+      {type: "required", message: "Email is required"},
+      {type: "email", message: "A valid email is required, e.g. enter the email as myname@mycompany.com"}
+    ]
+  };
+  vm.getValidationMessages = function(fieldName) {
+    return validationMessages[fieldName];
+  };
 });
 ```
