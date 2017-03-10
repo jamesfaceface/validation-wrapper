@@ -32,7 +32,7 @@ validationWrapperModule.controller("ValidationWrapperCtrl", ["$scope", "$element
 		// Get the label to add the mandatory notifier to. Need to get it here because it  will not have been transcluded when the control is first called.
 		var label = element.find("label[for='" + vm.fieldName + "']");
 		
-		if(!label.hasClass(".mandatory-notifier").length){
+		if(!label.find(".mandatory-notifier").length){
 			// First time running so add it
 			label.append("<span class='mandatory-notifier'>" + vm.mandatoryNotifier + "</span>");
 		}
