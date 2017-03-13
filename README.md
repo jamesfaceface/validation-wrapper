@@ -44,7 +44,7 @@ bower install angular-validation-wrapper --save
 ###Custom Template
 - If you wish to customize the template, the easiest way is to modify ```validation-wrapper-template.html``` and place it in ```/validation-wrapper/validation-wrapper-template.html```. This is the default location where the directive will look for the template. You can provide a different file all together by setting the ```template-url``` attribute when using the directive.
 
-##[Example](https://plnkr.co/edit/1mR7DcvCjeTK5WLwJgVk?p=preview)
+##[Example](https://plnkr.co/edit/Gdn03e?p=preview)
 This example shows the validation of an email field, which can be set to required or not. The standard template is used and the form is structured in the Bootstrap style. It also demonstrates how to supply a custom value for the mandatory notifier rather than the default * and how to delay validation via the '''message-debounce''' attribute.
 ###Markup
 ```html
