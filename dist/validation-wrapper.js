@@ -1,4 +1,4 @@
-/* validation-wrapper v1.0.71 - 2017-03-13
+/* validation-wrapper v1.0.72 - 2017-03-13
 Copyright (c) 2017 @jamesfaceface (https://github.com/jamesfaceface/validation-wrapper)
 Licenses: MIT
 */
@@ -33,9 +33,14 @@ validationWrapperModule.controller("ValidationWrapperCtrl", ["$scope", "$timeout
 	};
 	
 	$scope.$watch("vm.formObject[vm.fieldName].$touched", function(isTouched) {
-		$timeout(function() {
+		if(isTouched){
+			$timeout(function() {
+				vm.isTouched = isTouched;
+			}, vm.messageDebounce);
+		}
+		else{
 			vm.isTouched = isTouched;
-		}, vm.messageDebounce);
+		}
 	}, false);
 	
 	vm.isRequired = function(){
