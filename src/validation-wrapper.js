@@ -28,9 +28,14 @@ validationWrapperModule.controller("ValidationWrapperCtrl", ["$scope", "$timeout
 	};
 	
 	$scope.$watch("vm.formObject[vm.fieldName].$touched", function(isTouched) {
-		$timeout(function() {
+		if(isTouched){
+			$timeout(function() {
+				vm.isTouched = isTouched;
+			}, vm.messageDebounce);
+		}
+		else{
 			vm.isTouched = isTouched;
-		}, vm.messageDebounce);
+		}
 	}, false);
 	
 	vm.isRequired = function(){
