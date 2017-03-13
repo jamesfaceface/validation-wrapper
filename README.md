@@ -45,7 +45,7 @@ bower install angular-validation-wrapper --save
 - If you wish to customize the template, the easiest way is to modify ```validation-wrapper-template.html``` and place it in ```/validation-wrapper/validation-wrapper-template.html```. This is the default location where the directive will look for the template. You can provide a different file all together by setting the ```template-url``` attribute when using the directive.
 
 ##[Example](https://plnkr.co/edit/1mR7DcvCjeTK5WLwJgVk?p=preview)
-This example shows the validation of an email field, which can be set to required or not. The standard template is used and the form is structured in the Bootstrap style. It also demonstrates how to supply a custom value for the mandatory notifier rather than the default *.
+This example shows the validation of an email field, which can be set to required or not. The standard template is used and the form is structured in the Bootstrap style. It also demonstrates how to supply a custom value for the mandatory notifier rather than the default * and how to delay validation via the '''message-debounce''' attribute.
 ###Markup
 ```html
 <body ng-app="example">
@@ -58,7 +58,7 @@ This example shows the validation of an email field, which can be set to require
   <form name="vm.exampleForm" id="exampleForm" ng-controller="ExampleCtrl as vm">
     <div class="row">
       <div class="form-group col-md-6 col-sm-6">
-        <validation-wrapper get-form="vm.getFormObject" field-name="email" validation-messages="vm.getValidationMessages('email')" mandatory-notifier="' (required)'">
+        <validation-wrapper get-form="vm.getFormObject" field-name="email" validation-messages="vm.getValidationMessages('email')" mandatory-notifier="' (required)'" message-debounce="1000">
           <label-element>
             <input type='checkbox' ng-model="vm.emailRequired"/>
             <label for="email">Email Address</label>
