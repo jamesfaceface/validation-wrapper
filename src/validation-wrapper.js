@@ -1,20 +1,23 @@
 var validationWrapperModule = angular.module("validationWrapper", []);
 
-validationWrapperModule.controller("ValidationWrapperCtrl", ["$scope", "$element", function($scope, $element) {
+validationWrapperModule.controller("ValidationWrapperCtrl", ["$scope", "$timeout", "$element", function($scope, $timeout, $element) {
 	var vm = this;
 	var element = $element;
 	
 	vm.mandatoryNotifier = $scope.mandatoryNotifier || "*";
 	vm.fieldName = $scope.fieldName;
 	vm.validationMessages = $scope.validationMessages;
+	vm.messageDebounce = $scope.messageDebounce || 0;
 	vm.formObject = $scope.getForm();
+	
+	vm.isTouched = false;
 	
 	vm.shouldShowMessage = function(validationType){
 		var show = false;
 		
-		if(vm.formObject[vm.fieldName]){
+		if(vm.isTouched && vm.formObject[vm.fieldName]){
 			if(!validationType){
-				show = vm.formObject[vm.fieldName].$touched && vm.formObject[vm.fieldName].$invalid;
+				show = vm.formObject[vm.fieldName].$invalid;
 			}
 			else{
 				show = vm.formObject[vm.fieldName].$error[validationType];
@@ -23,6 +26,12 @@ validationWrapperModule.controller("ValidationWrapperCtrl", ["$scope", "$element
 		
 		return show;
 	};
+	
+	$scope.$watch("vm.formObject[vm.fieldName].$touched", function(isTouched) {
+		$timeout(function() {
+			vm.isTouched = isTouched;
+		}, vm.messageDebounce);
+	}, false);
 	
 	vm.isRequired = function(){
 		return element.find("[name='" + vm.fieldName + "']").attr("required") != undefined;
@@ -63,7 +72,8 @@ validationWrapperModule.directive("validationWrapper", function() {
 			mandatoryNotifier: "=",
 			getForm: "=",
 			fieldName: "@",
-			validationMessages: "="
+			validationMessages: "=",
+			messageDebounce: "@"
 		}
 	};
 });
