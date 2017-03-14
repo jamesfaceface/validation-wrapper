@@ -1,4 +1,4 @@
-/* validation-wrapper v1.0.77 - 2017-03-14
+/* validation-wrapper v1.0.78 - 2017-03-14
 Copyright (c) 2017 @jamesfaceface (https://github.com/jamesfaceface/validation-wrapper)
 Licenses: MIT
 */
