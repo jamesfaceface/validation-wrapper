@@ -1,20 +1,24 @@
 .validation-message-label {
-	margin-bottom: 3px;
+	-moz-text-align-last: justify;
+	-ms-text-align-last: justify;
+	text-align-last: justify;
 }
 
 .validation-message-label label {
 	margin-bottom: 2px;
+	margin-right: 5px;
+}
+
+.validation-message-label div.validation-message-label-element, .validation-message-label div.validation-message {
+	vertical-align: bottom;
+	display: inline-block;
+	text-align: left;
+	float: none;
 }
 
 .validation-message {
 	font-weight: bold;
 	padding: 1px 5px;
 	font-size: 8pt;
-	margin-left: 2px;
-	margin-top: 4px;
 	margin-bottom: 2px;
-}
-
-.validation-message-clearfix {
-	clear: both;
 }
