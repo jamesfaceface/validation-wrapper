@@ -3,6 +3,7 @@
 		<div class="validation-message-label-element" ng-show="!vm.labelMissing">
 			<ng-transclude ng-transclude-slot="labelElement"><span style="display: none;">{{vm.labelMissing=true}}</span></ng-transclude>
 		</div>
+		<!--Space is required for justification based alignment to work-->		<!--End space-->
 		<div class="alert alert-danger validation-message field-validation-error"
 			 data-valmsg-for="{{vm.fieldName}}"
 			 data-valmsg-replace="true"
