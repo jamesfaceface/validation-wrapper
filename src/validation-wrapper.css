@@ -7,6 +7,8 @@
 .validation-message-label label {
 	margin-bottom: 2px;
 	margin-right: 5px;
+	text-align: left;
+	text-align-last: left;
 }
 
 .validation-message-label div.validation-message-label-element, .validation-message-label div.validation-message {
