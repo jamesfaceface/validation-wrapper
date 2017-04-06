@@ -1,4 +1,4 @@
-/* validation-wrapper v1.0.79 - 2017-03-14
+/* validation-wrapper v1.0.80 - 2017-04-06
 Copyright (c) 2017 @jamesfaceface (https://github.com/jamesfaceface/validation-wrapper)
 Licenses: MIT
 */
@@ -12,6 +12,8 @@ Licenses: MIT
 .validation-message-label label {
 	margin-bottom: 2px;
 	margin-right: 5px;
+	text-align: left;
+	text-align-last: left;
 }
 
 .validation-message-label div.validation-message-label-element, .validation-message-label div.validation-message {
