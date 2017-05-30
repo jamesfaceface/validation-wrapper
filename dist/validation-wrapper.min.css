@@ -1,6 +1,6 @@
-/* validation-wrapper v1.0.81 - 2017-04-06
+/* validation-wrapper v1.0.82 - 2017-05-30
 Copyright (c) 2017 @jamesfaceface (https://github.com/jamesfaceface/validation-wrapper)
 Licenses: MIT
 */
 
-.validation-message-label{-moz-text-align-last:justify;-ms-text-align-last:justify;text-align-last:justify}.validation-message-label label{margin-bottom:2px;margin-right:5px}.validation-message-label div.validation-message,.validation-message-label div.validation-message-label-element{vertical-align:bottom;display:inline-block;text-align:left;float:none}.validation-message{font-weight:700;padding:1px 5px;font-size:8pt;margin-bottom:2px}
+.validation-message-label{-moz-text-align-last:justify;-ms-text-align-last:justify;text-align-last:justify}.validation-message-label label{margin-bottom:2px;margin-right:5px}.validation-message-label div.validation-message,.validation-message-label div.validation-message-label-element{vertical-align:bottom;display:inline-block;text-align:left;text-align-last:left;float:none}.validation-message{font-weight:700;padding:1px 5px;font-size:8pt;margin-bottom:2px}
